@@ -24,7 +24,7 @@ The goal is to evaluate how well a deep learning model performs on relatively sm
 - `data/` – contains raw and/or cleaned datasets
 - `notebooks/` – exploratory and training notebooks
 - `src/` – modular Python scripts (data prep, training, evaluation)
-- `models/` – saved models or weights
+- `models/` – saved models and weights
 - `README.md` – this file
 
 ---
