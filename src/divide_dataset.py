@@ -1,5 +1,6 @@
+import pandas as pd
 def data_clean(raw_dataset):
-  import pandas as pd
+  
   dataset = raw_dataset.copy()
   dataset.dropna(inplace=True)
   index_to_drop = dataset[dataset['median_house_value'] == 500001]
