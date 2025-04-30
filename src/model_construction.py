@@ -7,13 +7,13 @@ from tensorflow.keras.callbacks import EarlyStopping
 
 def build_model(input_dim):
    model = Sequential()
-    model.add(Dense(128, input_shape=[input_dim], activation='relu'))
-    model.add(Dropout(0.1))
-    model.add(Dense(64, activation='relu'))
-    model.add(Dense(1))
+   model.add(Dense(128, input_shape=[input_dim], activation='relu'))
+   model.add(Dropout(0.1))
+   model.add(Dense(64, activation='relu'))
+   model.add(Dense(1))
 
-    model.compile(optimizer='adam', loss='mse', metrics=['mae', 'mse'])
-    return model
+   model.compile(optimizer='adam', loss='mse', metrics=['mae', 'mse'])
+   return model
 
 def train_model(model, train_dataset, train_labels):
     early_stop = EarlyStopping(
