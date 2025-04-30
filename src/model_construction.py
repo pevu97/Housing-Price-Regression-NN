@@ -9,17 +9,17 @@ def build_model():
   model.compile(optimizer='adam', loss='mse', metrics=['mae', 'mse'])
   return model
 
-  def train_model(model, train_dataset, train_labels):
-    from tensorflow.keras.callbacks import EarlyStopping
+def train_model(model, train_dataset, train_labels):
+  from tensorflow.keras.callbacks import EarlyStopping
 
-    early_stop = EarlyStopping(
-    monitor='val_loss',       # na jakiej metryce się skupiamy
-    patience=5,               # ile epok poczeka zanim przerwie
-    restore_best_weights=True  # wróć do najlepszych wag (super ważne!)
-    )
+  early_stop = EarlyStopping(
+  monitor='val_loss',       # na jakiej metryce się skupiamy
+  patience=5,               # ile epok poczeka zanim przerwie
+  restore_best_weights=True  # wróć do najlepszych wag (super ważne!)
+  )
 
-    history = model.fit(train_dataset, train_labels, epochs=200, validation_split=0.2, verbose=1, batch_size=32,  callbacks=[early_stop])
-    return history
+  history = model.fit(train_dataset, train_labels, epochs=200, validation_split=0.2, verbose=1, batch_size=32,  callbacks=[early_stop])
+  return history
 
 
   def model_plots(history):
