@@ -22,25 +22,25 @@ def train_model(model, train_dataset, train_labels):
   return history
 
 
-  def model_plots(history):
-    hist = pd.DataFrame(history.history)
-    hist['epoch'] = history.epoch
-    hist['rmse'] = np.sqrt(hist['mse'])
-    hist['val_rmse'] = np.sqrt(hist['val_mse'])
+def model_plots(history):
+  hist = pd.DataFrame(history.history)
+  hist['epoch'] = history.epoch
+  hist['rmse'] = np.sqrt(hist['mse'])
+  hist['val_rmse'] = np.sqrt(hist['val_mse'])
 
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(x=hist['epoch'], y=hist['mae'], name='mae', mode='markers+lines'))
-    fig.add_trace(go.Scatter(x=hist['epoch'], y=hist['val_mae'], name='val_mae', mode='markers+lines'))
-    fig.update_layout(width=1000, height=500, title='MAE vs. VAL_MAE', xaxis_title='Epoki', yaxis_title='Mean Absolute Error', yaxis_type='log')
-    fig.show()
+  fig = go.Figure()
+  fig.add_trace(go.Scatter(x=hist['epoch'], y=hist['mae'], name='mae', mode='markers+lines'))
+  fig.add_trace(go.Scatter(x=hist['epoch'], y=hist['val_mae'], name='val_mae', mode='markers+lines'))
+  fig.update_layout(width=1000, height=500, title='MAE vs. VAL_MAE', xaxis_title='Epoki', yaxis_title='Mean Absolute Error', yaxis_type='log')
+  fig.show()
 
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(x=hist['epoch'], y=hist['rmse'], name='rmse', mode='markers+lines'))
-    fig.add_trace(go.Scatter(x=hist['epoch'], y=hist['val_rmse'], name='val_rmse', mode='markers+lines'))
-    fig.update_layout(width=1000, height=500, title='RMSE vs. VAL_RMSE', xaxis_title='Epoki', yaxis_title='Root Mean Squared Error', yaxis_type='log')
-    fig.show()
+  fig = go.Figure()
+  fig.add_trace(go.Scatter(x=hist['epoch'], y=hist['rmse'], name='rmse', mode='markers+lines'))
+  fig.add_trace(go.Scatter(x=hist['epoch'], y=hist['val_rmse'], name='val_rmse', mode='markers+lines'))
+  fig.update_layout(width=1000, height=500, title='RMSE vs. VAL_RMSE', xaxis_title='Epoki', yaxis_title='Root Mean Squared Error', yaxis_type='log')
+  fig.show()
 
-    return plot_hist(history)
+  return plot_hist(history)
 
 
 
