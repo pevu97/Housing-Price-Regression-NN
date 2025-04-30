@@ -1,4 +1,4 @@
-def build_model():
+def build_model(train_dataset_scaled):
   model = Sequential()
   model.add(Dense(1024, input_shape=[len(train_dataset_scaled.columns)], activation='relu', kernel_regularizer='l2'))
   model.add(Dropout(0.2))
