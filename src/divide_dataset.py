@@ -1,4 +1,4 @@
-def data_clean():
+def data_clean(raw_dataset):
   import pandas as pd
   dataset = raw_dataset.copy()
   dataset.dropna(inplace=True)
@@ -7,7 +7,7 @@ def data_clean():
   dataset_dummies = pd.get_dummies(dataset, drop_first=True)
   return dataset_dummies
 
-def data_division():
+def data_division(dataset_dummies):
   train_dataset = dataset_dummies.sample(frac=0.8, random_state=0)
   test_dataset = dataset_dummies.drop(train_dataset.index)
   train_labels = train_dataset.pop('median_house_value')
