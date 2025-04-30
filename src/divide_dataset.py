@@ -3,7 +3,8 @@ def data_clean():
   dataset.dropna(inplace=True)
   index_to_drop = dataset[dataset['median_house_value'] == 500001]
   dataset = dataset.drop(index=index_to_drop.index)
-  return dataset_dummies = pd.get_dummies(dataset, drop_first=True)
+  dataset_dummies = pd.get_dummies(dataset, drop_first=True)
+  return dataset_dummies
 
 def data_division():
   train_dataset = dataset_dummies.sample(frac=0.8, random_state=0)
