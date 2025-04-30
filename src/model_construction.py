@@ -9,7 +9,7 @@ def build_model():
   model.compile(optimizer='adam', loss='mse', metrics=['mae', 'mse'])
   return model
 
-  def train_model(train_dataset, train_labels):
+  def train_model(model, train_dataset, train_labels):
     from tensorflow.keras.callbacks import EarlyStopping
 
     early_stop = EarlyStopping(
