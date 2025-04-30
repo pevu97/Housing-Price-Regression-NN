@@ -18,7 +18,8 @@ def build_model():
     restore_best_weights=True  # wróć do najlepszych wag (super ważne!)
     )
 
-    return history = model.fit(train_dataset, train_labels, epochs=200, validation_split=0.2, verbose=1, batch_size=32,  callbacks=[early_stop])
+    history = model.fit(train_dataset, train_labels, epochs=200, validation_split=0.2, verbose=1, batch_size=32,  callbacks=[early_stop])
+    return history
 
 
   def model_plots():
