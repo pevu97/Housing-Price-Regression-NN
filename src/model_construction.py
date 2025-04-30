@@ -9,7 +9,7 @@ def build_model():
   model.compile(optimizer='adam', loss='mse', metrics=['mae', 'mse'])
   return model
 
-  def train_model():
+  def train_model(train_dataset, train_labels):
     from tensorflow.keras.callbacks import EarlyStopping
 
     early_stop = EarlyStopping(
@@ -22,7 +22,7 @@ def build_model():
     return history
 
 
-  def model_plots():
+  def model_plots(history):
     hist = pd.DataFrame(history.history)
     hist['epoch'] = history.epoch
     hist['rmse'] = np.sqrt(hist['mse'])
