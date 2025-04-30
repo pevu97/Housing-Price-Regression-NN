@@ -1,3 +1,10 @@
+import numpy as np
+import pandas as pd
+import plotly.graph_objects as go
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Dropout
+from tensorflow.keras.callbacks import EarlyStopping
+
 def build_model(train_dataset_scaled):
   model = Sequential()
   model.add(Dense(1024, input_shape=[len(train_dataset_scaled.columns)], activation='relu', kernel_regularizer='l2'))
