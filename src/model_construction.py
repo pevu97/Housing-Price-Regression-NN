@@ -8,7 +8,7 @@ from tensorflow.keras.callbacks import EarlyStopping
 def build_model(input_dim):
 
    model = Sequential()
-   model.add(Dense(256, activation='relu'))
+   model.add(Dense(256, activation='relu', input_shape=[input_dim]))
    model.add(Dropout(0.3)) 
    
    model.add(Dense(128, activation='relu'))
