@@ -29,13 +29,13 @@ def build_model(input_dim):
 def train_model(model, train_dataset, train_labels):
     early_stop = EarlyStopping(
         monitor='val_loss',
-        patience=58,
+        patience=10,
         restore_best_weights=True
     )
 
     history = model.fit(
         train_dataset, train_labels,
-        epochs=200,
+        epochs=500,
         validation_split=0.2,
         verbose=1,
         batch_size=32,
