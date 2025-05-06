@@ -17,6 +17,7 @@ def build_model(input_dim):
    model.add(Dense(64, activation='relu'))
    
    model.add(Dense(1))
+   model.compile(optimizer='adam', loss='mse', metrics=['mae', 'mse'])
    return model
 
 
