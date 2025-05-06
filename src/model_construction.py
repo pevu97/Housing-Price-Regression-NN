@@ -6,14 +6,19 @@ from tensorflow.keras.layers import Dense, Dropout
 from tensorflow.keras.callbacks import EarlyStopping
 
 def build_model(input_dim):
-   model = Sequential()
-   model.add(Dense(512, input_shape=[input_dim], activation='relu'))
-   model.add(Dropout(0.1))
-   model.add(Dense(128, activation='relu'))
-   model.add(Dense(1))
 
-   model.compile(optimizer='adam', loss='mse', metrics=['mae', 'mse'])
+   model = Sequential()
+   model.add(Dense(128, input_shape=[input_dim], activation='relu'))
+   model.add(Dropout(0.3)) 
+   
+   model.add(Dense(256, activation='relu'))
+   model.add(Dropout(0.3))  
+   
+   model.add(Dense(64, activation='relu'))
+   
+   model.add(Dense(1))
    return model
+
 
 def train_model(model, train_dataset, train_labels):
     early_stop = EarlyStopping(
